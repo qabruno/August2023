@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using August2023.Utilities;
+using NUnit.Framework;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,19 +43,22 @@ namespace August2023.Pages
             Thread.Sleep(5000);
 
             // Check if new Time record has been created successfully
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[4]/a[4]/span", 5);
             IWebElement goToLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             goToLastPageButton.Click();
 
             IWebElement newCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
 
-            if (newCode.Text == "August2023")
-            {
-                Console.WriteLine("New Time record has been created successfully.");
-            }
-            else
-            {
-                Console.WriteLine("Time record has not been created.");
-            }
+            Assert.That(newCode.Text == "August2023", "Time record has not been created."); 
+
+            //if (newCode.Text == "August2023")
+            //{
+            //    Assert.Pass("New Time record has been created successfully.");
+            //}
+            //else
+            //{
+            //    Assert.Fail("Time record has not been created.");
+            //}
         }
 
         public void EditTimeRecord(IWebDriver driver)

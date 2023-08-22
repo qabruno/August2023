@@ -11,6 +11,7 @@ using August2023.Utilities;
 
 namespace August2023.Tests
 {
+    [Parallelizable]
     [TestFixture]
     public class TM_Tests : CommonDriver
     {
@@ -29,21 +30,21 @@ namespace August2023.Tests
             homePageObj.GoToTMPage(driver);
         }
 
-        [Test]
+        [Test, Order(1), Description("This test creates a new Time record with valid data")]
         public void CreateTime_Test()
         {
             TMPage tmPageObj = new TMPage();
             tmPageObj.CreateTimeRecord(driver);
         }
 
-        [Test]
+        [Test, Order(2), Description("This test edits an existing Time record with valid data")]
         public void EditTime_Test()
         {
             TMPage tmPageObj = new TMPage();
             tmPageObj.EditTimeRecord(driver);
         }
 
-        [Test]
+        [Test, Order(3), Description("This test deletes an existing Time record")]
         public void DeleteTime_Test()
         {
             TMPage tmPageObj = new TMPage();

@@ -34,7 +34,7 @@ namespace August2023.Pages
             IWebElement passwordTextbox = driver.FindElement(By.Id("Password"));
             passwordTextbox.SendKeys("123123");
 
-            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"loginForm\"]/form/div[3]/input[1]", 2);
+            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"loginForm\"]/form/div[3]/input[1]", 10);
             //Identify login button and click on the button
             IWebElement loginButton = driver.FindElement(By.XPath("//*[@id=\"loginForm\"]/form/div[3]/input[1]"));
             loginButton.Click();

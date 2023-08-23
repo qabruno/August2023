@@ -41,7 +41,7 @@ namespace August2023.Tests
         public void EditTime_Test()
         {
             TMPage tmPageObj = new TMPage();
-            tmPageObj.EditTimeRecord(driver);
+            tmPageObj.EditRecord(driver, "whatever");
         }
 
         [Test, Order(3), Description("This test deletes an existing Time record")]
